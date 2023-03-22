@@ -34,23 +34,23 @@ public class VotersController {
 		return new ResponseEntity<Voters>(voterService.createVoter(voter),HttpStatus.CREATED );
 	}
 	
-	@GetMapping("/voters")
+	@GetMapping("/getAll")
 	public List<Voters> getAllUsers()
 	{
 		return voterService.getAllVoters();
 	}
-	@GetMapping("/voter/{id}")
+	@GetMapping("/get/{id}")
 	public ResponseEntity<Voters> getUserByid(@PathVariable("id") String userId)
 	{
 		return new ResponseEntity<Voters>(voterService.getVoterById(userId), HttpStatus.OK);
 	}
-	@PutMapping("/voter/update/{id}")
+	@PutMapping("/update/{id}")
 	 public ResponseEntity<Voters> updateUser( @PathVariable String id,@RequestBody Voters user)
 	 {
 		 return new ResponseEntity<Voters>(voterService.updateById(id.toString(), user),HttpStatus.OK);
 		 
 	 }
-	@DeleteMapping("/voter/delete/{id}")
+	@DeleteMapping("/delete/{id}")
 	public ResponseEntity<Voters> deleteById(@PathVariable String id)
 	{
 		return new ResponseEntity<Voters>(voterService.deleteById(id),HttpStatus.OK);

@@ -1,6 +1,7 @@
 package com.example.smartvote.service;
 
 import java.util.List;
+import org.springframework.stereotype.Service;
 
 import com.example.smartvote.model.Voters;
 

@@ -1,17 +1,23 @@
 package com.example.smartvote.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Service;
+
+import org.apache.catalina.*;
+
+
 
 import com.example.smartvote.model.Voters;
 import com.example.smartvote.repository.VoterRepository;
 
+
 @Service
 public class VoterServiceimpl implements VoterService {
-	
-	VoterRepository repository;
 
+	VoterRepository repository;
 	public VoterServiceimpl(VoterRepository repository) {
 		this.repository = repository;
 	}
@@ -49,7 +55,7 @@ public class VoterServiceimpl implements VoterService {
 		existingvoter.setEmail(voter.getEmail());
 		existingvoter.setPhoneNumber(voter.getPhoneNumber());
 		repository.save(existingvoter);
-		return null;
+		return existingvoter;
 	}
 
 	@Override
